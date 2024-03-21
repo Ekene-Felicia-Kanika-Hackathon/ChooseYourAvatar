@@ -17,9 +17,11 @@ https://avatar.iran.liara.run/public/
 
 START CODE HERE!!!!!! ******/
 
-const getAvatarURL = 'https://avatar.iran.liara.run/public/ ';
+const getAvatarURL = `https://avatar.iran.liara.run/public/job/${occupation}/female`;
 
 console.log(getAvatarURL);
+
+
 
 
 
