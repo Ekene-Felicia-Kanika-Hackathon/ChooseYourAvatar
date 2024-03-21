@@ -17,13 +17,33 @@ https://avatar.iran.liara.run/public/
 
 START CODE HERE!!!!!! ******/
 
-const getAvatarURL = `https://avatar.iran.liara.run/public/job/${occupation}/female`;
+
+const occupationArr = [{
+     occupation : `chef`,
+     description : ``
+},{occupation : `astronomer`, description : `` },{ occupation : `doctor`, description : `` },{occupation : `farmer`, description : `` },{occupation : `police`, description : `` },{occupation : `teacher`, description : `` },{occupation : `Lawyer`, description : `` },{occupation : `Operator`, description : `` },{occupation : `Firefighter`, description : `` }, {occupation : `Designer`, description : `` }];
+
+
+const getAvatarURL = `https://avatar.iran.liara.run/public/job/${occupationArr.occupation}/female`;
 
 console.log(getAvatarURL);
 
 
+const getOccupation = async (getAvatarURL) => {
+     try {
+          const occupationResult = await axios.get(getAvatarURL);
 
 
+     } catch(error) {
+
+     }
+}
+
+
+
+
+
+console.log(occupationArr);
 
 
 // Code from Choose Your Pokemon as referrence 
