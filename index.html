@@ -8,36 +8,23 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Teko:wght@700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./styles/main.css" />
-    <script src="./main.js" defer></script>
   </head>
  
   <body>
     <header>
         <div class="wrapper master-box">
-          <div class="container">
-            <div class="ball">
-              <div class="center">
-                <div class="center2"></div>
-              </div>
-            </div>
-          </div>
+          
           <h1>Choose Your Career</h1>
-          <div class="container">
-            <div class="ball2 hide">
-              <div class="center">
-                <div class="center2"></div>
-              </div>
-            </div>
-          </div>
+          
         </div>
       </header>
     <main>
         <div class="wrapper">
-            <h2>Please select an avatar below</h2>
+            <h2>Please select a career below</h2>
             <!-- <p>Open the console</p> -->
             <form action="" class="my-form" name="myForm">
                 <label for="pokemonChoice">Which career?</label>
-                <select name="pokemonChoice" id="pokemonChoice">
+                <select name="occupation" id="occupation">
                 <option value disabled selected>Please choose a Career</option>
                 <option value="doctor">Doctor</option>
                 <option value="chef">chef</option>
@@ -52,8 +39,9 @@
                 </select>
             </form>
         <div>
-        <section>
+        <section class="wrapper">
 <!-- Section for Avatar Data -->
+            <img class="picture"/>
         </section>
     </main>
     <footer>
@@ -65,5 +53,7 @@
             <p>Developed by <a href="https://github.com/ekeneo" target="blank">Ekene Olatunji</a>, <a href="http://felicianemet.com/" target="blank">Felicia Nemet</a> & <a href="https://github.com/sainik21" target="blank">Kanika Saini</a></p> 
        </div>
     </footer>
+    <script src="https://unpkg.com/axios@1.6.7/dist/axios.min.js"></script>
+    <script src="./main.js"></script>
   </body>
 </html>
