@@ -1,9 +1,11 @@
+
+
 //Pseudo Code for HACKATHON 
 /* 
 
 Endpoint for Avavtar api 
 
-https://avatar.iran.liara.run/public/ 
+
 
 */
 
@@ -17,115 +19,59 @@ https://avatar.iran.liara.run/public/
 
 START CODE HERE!!!!!! ******/
 
-const getAvatarURL = `https://avatar.iran.liara.run/public/job/${occupation}/female`;
 
-console.log(getAvatarURL);
-
-
-
-
-
-
-// Code from Choose Your Pokemon as referrence 
-
-/* // Create a namespace for our app:
-
-const pokemonStarterApp = {};
-
-
-// An initializer function. The first thing that will be called and will get all the other parts of our app up and running.
-pokemonStarterApp.init = () => {
-     pokemonStarterApp.setUpPokeEventListeners();
-     pokemonStarterApp.getPokemon();
-};
+const occupationArr = [
+     {occupation : `chef`,description : `Chefs are culinary magicians who turn ingredients into delicious meals that delight the senses. From gourmet dishes to comfort foods, chefs use their skills and passion to create tasty experiences that bring people together around the dinner table.`},
+     {occupation : `astronomer`, description : `Astronomers are cosmic explorers who study the stars, planets, and mysteries of the universe. They use telescopes and scientific tools to unravel the secrets of space, expanding our understanding of the cosmos and our place within it.` },
+     {occupation : `doctor`, description : `Doctors are real-life superheroes who help people feel better when they're sick or hurt. They use their knowledge and skills to diagnose illnesses, provide treatment, and promote healthy living for a brighter, happier future.` },
+     {occupation : `farmer`, description : `Farmers are nature's caretakers who work hard to grow the food we eat and take care of the land. They nurture plants and animals, harvest crops, and ensure we have fresh, healthy food to nourish our bodies and sustain our communities` },
+     {occupation : `police`, description : `Joining the police force means protecting and serving your community. Police officers help keep neighborhoods safe, solve crimes, and ensure everyone follows the rules to make the world a better place.` },
+     {occupation : `teacher`, description : `Teachers are mentors and guides who inspire young minds to learn, grow, and succeed. They create engaging lessons, nurture creativity, and empower students to reach their full potential, shaping the leaders of tomorrow.` },
+     {occupation : `Lawyer`, description : `Lawyers are champions of justice who use their knowledge of the law to defend people's rights and resolve legal disputes. Whether they're fighting for justice in the courtroom or providing legal advice, lawyers help ensure fairness and equality for all.` },
+     {occupation : `Operator`, description : `Operators are tech-savvy problem solvers who keep the world running smoothly behind the scenes. Whether they're answering phones, operating machinery, or managing computer systems, operators play a vital role in keeping things moving efficiently.` },
+     {occupation : `Firefighter`, description : `Firefighters are brave heroes who rush into danger to keep us safe from fires and other emergencies. They work as a team to rescue people, protect property, and extinguish flames, showing courage and selflessness in the face of danger.` },
+     {occupation : `Designer`, description : `Designers are creative wizards who bring ideas to life through art, fashion, or digital media. Whether they're crafting beautiful clothes, designing cool websites, or dreaming up imaginative worlds, designers add beauty and style to the world around us.` }
+];
 
 
-//  A function to set up a change event listener on our select drop-down. When the change event fires, it will call the pokemonStarterApp.findPokemon function with the value of the selected option as an argument. 
 
-
-pokemonStarterApp.setUpPokeEventListeners = () => {
-     document.querySelector(`#pokemonChoice`).addEventListener(`change`, function () {
-          pokemonStarterApp.findPokemon = this.value;
-          pokemonStarterApp.getPokemon(pokemonStarterApp.findPokemon);
-     });
-};
-// A function that lets the user toggle between the default and shiny images.
-
-
-pokemonStarterApp.makeShinyEventListeners = (pokeObject) => {
-     let count = 0
-     document.querySelector(`#shiny`).addEventListener(`click`, function () {
-          if (count === 0) {
-               const pokeFrontImage = document.querySelector(`#poke-front-image`);
-               pokeFrontImage.src = pokeObject[`sprites`][`front_shiny`];
-               const pokeBackImage = document.querySelector(`#poke-back-image`);
-               pokeBackImage.src = pokeObject[`sprites`][`back_shiny`];
-               count = 1;
-          } else if (count === 1) {
-               const pokeFrontImage = document.querySelector(`#poke-front-image`);
-               pokeFrontImage.src = pokeObject[`sprites`][`front_default`];
-               const pokeBackImage = document.querySelector(`#poke-back-image`);
-               pokeBackImage.src = pokeObject[`sprites`][`back_default`];
-               count = 0;
-          }
+ const userOccupation = () => {
+     document.querySelector(`#occupation`).addEventListener(`change`, function (){
+          const findOccupation = this.value;
+          console.log(`change event listener called`);
+          getOccupation(findOccupation);
+          console.log(this.value);
+          console.log(findOccupation);
+          return findOccupation;
      })
-};
-// A function for our API call, this will go get the data from pokeapi.co
+}
+
+userOccupation();
+
+const occupationPicture = document.querySelector('.picture');
 
 
-pokemonStarterApp.getPokemon = (id) => {
-     if (!id) return;
-     const url = `https://pokeapi.co/api/v2/pokemon/${id}?limit=150`;
-     fetch(url)
-          .then((response) => {
-               return response.json();
-          })
-          .then((jsonResult) => {
-               const myPokemon = jsonResult;
-               console.log(myPokemon);
 
-               pokemonStarterApp.displayPokers(myPokemon);
-               pokemonStarterApp.makeShinyEventListeners(myPokemon);
-               pokemonStarterApp.addPokeClasses(id);
-          }).catch((error) => {
-               alert(`It's unsafe! Wild Pokemon live in tall grass! You need your own Pokemon for your protection! Please reload the page.`)
-          });
-};
-// A function that uses the API result to create new elements and put them on the page based on the selected value.
-pokemonStarterApp.displayPokers = (pokeObject) => {
-     // This is pulling the custom badge image from our assets folder based on the type of pokemon selected by the user (not from the api).
-     const pokeBadge = document.querySelector(`#poke-badge`);
-     pokeBadge.innerHTML = `<img src="./assets/${pokeObject.types[0].type.name}.png" alt="${pokeObject.types[0].type.name} badge" >`;
-     const pokeName = document.querySelector(`#poke-name`);
-     pokeName.innerHTML = pokemonStarterApp.findPokemon;
-     const pokeNumber = document.querySelector(`#poke-number`);
-     pokeNumber.innerHTML = `${pokeObject.id}. `;
-     const pokeType = document.querySelector(`#poke-type`);
-     pokeType.innerHTML = pokeObject.types[0].type.name;
-     const pokeFrontImage = document.querySelector(`#poke-front-image`);
-     pokeFrontImage.src = pokeObject[`sprites`][`front_default`];
-     pokeFrontImage.alt = `${pokemonStarterApp.findPokemon} front`;
-     const pokeBackImage = document.querySelector(`#poke-back-image`);
-     pokeBackImage.src = pokeObject[`sprites`][`back_default`];
-     pokeBackImage.alt = `${pokemonStarterApp.findPokemon} back`;
-     const shiny = document.querySelector(`#shiny`);
-     shiny.innerHTML = `toggle shiny ${pokemonStarterApp.findPokemon}`;
-};
+const getOccupation = async (occupation) => {
+     try {
+          const occupationResult = await axios.get(`https://avatar.iran.liara.run/public/job/${occupation}/female`, {responseType: "blob"});
+
+          console.log(`try block called`);
+          console.log(occupationResult.data);
+          const imageBlob = new Blob([occupationResult.data]);
+          // const imageURL = URL.createObjectURL(new Blob([await occupationResult.data.arrayBuffer],{type:"image/png"}));
+          // console.log(imageURL);
+          const fileReader = new FileReader();
+          fileReader.readAsDataURL(imageBlob);
+          fileReader.onloadend = () => {
+               occupationPicture.src = fileReader.result;
+               console.log(fileReader.result);
+          };
 
 
-// A function that changes the styling of the chosen pokemon's name and shadow based on the selected value.
-pokemonStarterApp.addPokeClasses = (id) => {
+     } catch(error) {
+          console.log(error);
+     }
+}
 
-     const pokeName = document.querySelector(`#poke-name`);
 
-     pokeName.removeAttribute(`class`);
-     pokeName.classList.add(`${id}-styles`);
-
-     const pokePicture = document.querySelector(`#poke-picture`);
-     pokePicture.removeAttribute(`class`);
-     pokePicture.classList.add(`${id}-shadow`, `poke-picture`);
-
-};
-
-// Call the init function to start off our app!
-pokemonStarterApp.init();  */
