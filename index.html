@@ -1,37 +1,69 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Choose Your Avatar</title>
-    <link rel="stylesheet" href="./styles/main.css">
-</head>
-<header>
-    <h1>Choose Your Character</h1>
-    <p>Open the console</p>
-    <form>
-        <select name="pokemonChoice" id="pokemonChoice">
-            <option value disabled selected>Please choose a Career</option>
-            <option value="doctor">Doctor</option>
-            <option value="chef">Charmander</option>
-            <option value="farmer">Squirtle</option>
-            <option value="firefighter">Pikachu</option>
-            <option value="designer">Vulpix</option>
-            <option value="police">Psyduck</option>
-            <option value="teacher">Growlithe</option>
-            <option value="lawyer">Poliwag</option>
-            <option value="operator">Tentacool</option>
-            <option value="astronomer">Ponyta</option>
-       </select>
-    </form>
-</header>
-<main>
-
-</main>
-<footer>
-
-</footer>
-<body>
-    <script src="./main.js"></script>
-</body>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Teko:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./styles/main.css" />
+    <script src="./main.js" defer></script>
+  </head>
+ 
+  <body>
+    <header>
+        <div class="wrapper master-box">
+          <div class="container">
+            <div class="ball">
+              <div class="center">
+                <div class="center2"></div>
+              </div>
+            </div>
+          </div>
+          <h1>Choose Your Career</h1>
+          <div class="container">
+            <div class="ball2 hide">
+              <div class="center">
+                <div class="center2"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </header>
+    <main>
+        <div class="wrapper">
+            <h2>Please select an avatar below</h2>
+            <!-- <p>Open the console</p> -->
+            <form action="" class="my-form" name="myForm">
+                <label for="pokemonChoice">Which career?</label>
+                <select name="pokemonChoice" id="pokemonChoice">
+                <option value disabled selected>Please choose a Career</option>
+                <option value="doctor">Doctor</option>
+                <option value="chef">chef</option>
+                <option value="farmer">farmer</option>
+                <option value="firefighter">firefighter</option>
+                <option value="designer">designer</option>
+                <option value="police">police</option>
+                <option value="teacher">teacher</option>
+                <option value="lawyer">lawyer</option>
+                <option value="operator">operator</option>
+                <option value="astronomer">astronomer</option>
+                </select>
+            </form>
+        <div>
+        <section>
+<!-- Section for Avatar Data -->
+        </section>
+    </main>
+    <footer>
+        <div class="wrapper">
+            <div class="credits">
+                 <p>Created @ <a href="https://brainstation.io/" target="blank">BRAINSTATION HACKATHON</a></p>
+                 <p> Data courtesy of the <a href="https://avatar-placeholder.iran.liara.run/avatars/job" target="blank">Avatar Placeholder API</a></p>
+            </div>
+            <p>Developed by <a href="https://github.com/ekeneo" target="blank">Ekene Olatunji</a>, <a href="http://felicianemet.com/" target="blank">Felicia Nemet</a> & <a href="https://github.com/sainik21" target="blank">Kanika Saini</a></p> 
+       </div>
+    </footer>
+  </body>
 </html>

@@ -1,0 +1,133 @@
+@import "./partials/setup";
+@import "./partials/typography";
+@import "./partials/avatar-styles";
+@import "./partials/balls";
+@import "./partials/media-queries"; 
+
+body {
+     background-color: rgb(198, 236, 241);
+}
+
+.wrapper {
+     max-width: 1200px;
+     width: 90%;
+     margin: 0 auto;
+}
+
+.master-box {
+     display: flex;
+     flex-direction: row;
+     text-align: center;
+     justify-content: center;
+}
+
+.my-form {
+     text-align: center;
+}
+
+label, 
+select {
+     text-transform: uppercase;
+     font-family: $buttonFont;
+     letter-spacing: 1px;
+     color: $charcoal;
+}
+
+select {
+     background-color: $dark-cyan;
+     border: none;
+     padding-left: 5px;
+     margin-left: 10px;
+}
+
+.pokemon-data {
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     flex-direction: column;
+     position: relative;
+     border: 2px solid #393939;
+     border-radius: 5px;
+     background-color: #bdae58;
+     box-shadow: inset 5px 5px rgba(0, 0, 0, 0.15);
+     outline: 12px solid #777;
+     max-width: 440px;
+     min-height: 316px;
+     width: 80%;
+     margin: 50px auto 50px auto;
+
+     h3 {
+          font-family: $buttonFont;
+          letter-spacing: 2px;
+          margin: 0;
+     }
+}
+
+.poke-badge {
+     position: absolute;
+     top: -40px;
+     right: -40px; 
+
+     img {
+          width: 70px;
+     }
+}
+
+.poke-picture {
+     position: relative;
+     z-index: 10;
+     display: flex;
+
+     img {
+          height: 150px;
+     }
+}
+
+.poke-stats {
+     display: flex;
+     flex-direction: row;
+     justify-content: space-between;
+     padding-bottom: 50px;
+}
+
+.shiny {
+     text-transform: uppercase;
+     font-family: $buttonFont;
+     background-color: $ruby-red;
+     color: white;
+     border: none;
+     width: 70%;
+     padding: 0.5em 0 0.4em 0;  
+     border-radius: 5px 5px 0 0; 
+     margin-top: 15px;
+     position: absolute;
+     bottom: 0;
+
+     &:hover,
+     &:focus {
+          color: $charcoal;
+          background-color: lighten($ruby-red, 10);
+     }
+}
+
+footer {
+     background-color: $charcoal;
+     margin-top: 70px;
+     padding: 20px 0;
+     
+     .credits {
+          display: flex;
+          justify-content: space-between;
+          max-width: 630px;
+          margin: auto;
+     }
+
+     a, p {
+          color: white;
+     }
+
+     a:hover {
+          color: $ruby-red;
+     }
+}
+
