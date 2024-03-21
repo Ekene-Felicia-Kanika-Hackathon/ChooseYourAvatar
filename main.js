@@ -24,7 +24,9 @@ const occupationArr = [{
 },{occupation : `astronomer`, description : `` },{ occupation : `doctor`, description : `` },{occupation : `farmer`, description : `` },{occupation : `police`, description : `` },{occupation : `teacher`, description : `` },{occupation : `Lawyer`, description : `` },{occupation : `Operator`, description : `` },{occupation : `Firefighter`, description : `` }, {occupation : `Designer`, description : `` }];
 
 
-const getAvatarURL = `https://avatar.iran.liara.run/public/job/${occupationArr.occupation}/female`;
+const occuptation = doctor
+
+const getAvatarURL = `https://avatar.iran.liara.run/public/job/${occupation}/female`;
 
 console.log(getAvatarURL);
 

@@ -7,3 +7,5 @@ Use the fundamentals of programming in Javascript to write your logic. This woul
 Demonstrate implementation of asynchronous programming concepts like promises, callbacks, event handlers
 Pick an API from the list below for your project and apply your asynchronous programming skills to call the required API in your project
 Optional: use CSS animations, responsive design, external font libraries for a better UI
+
+Career Synopsis
