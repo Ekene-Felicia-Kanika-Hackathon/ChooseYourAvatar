@@ -1,9 +1,11 @@
+
+
 //Pseudo Code for HACKATHON 
 /* 
 
 Endpoint for Avavtar api 
 
-https://avatar.iran.liara.run/public/ 
+
 
 */
 
@@ -18,136 +20,54 @@ https://avatar.iran.liara.run/public/
 START CODE HERE!!!!!! ******/
 
 
-const occupationArr = [{
-     occupation : `chef`,
-     description : ``
-},{occupation : `astronomer`, description : `` },{ occupation : `doctor`, description : `` },{occupation : `farmer`, description : `` },{occupation : `police`, description : `` },{occupation : `teacher`, description : `` },{occupation : `Lawyer`, description : `` },{occupation : `Operator`, description : `` },{occupation : `Firefighter`, description : `` }, {occupation : `Designer`, description : `` }];
-
-
-const occuptation = doctor
-
-const getAvatarURL = `https://avatar.iran.liara.run/public/job/${occupation}/female`;
-
-console.log(getAvatarURL);
-
-
-const getOccupation = async (getAvatarURL) => {
-     try {
-          const occupationResult = await axios.get(getAvatarURL);
-
-
-     } catch(error) {
-
-     }
-}
-
-
-
+const occupationArr = [
+     {occupation : `chef`,description : ``,},
+     {occupation : `astronomer`, description : `` },
+     {occupation : `doctor`, description : `` },
+     {occupation : `farmer`, description : `` },
+     {occupation : `police`, description : `` },
+     {occupation : `teacher`, description : `` },
+     {occupation : `Lawyer`, description : `` },
+     {occupation : `Operator`, description : `` },
+     {occupation : `Firefighter`, description : `` },
+     {occupation : `Designer`, description : `` }
+];
 
 
 console.log(occupationArr);
 
-
-// Code from Choose Your Pokemon as referrence 
-
-/* // Create a namespace for our app:
-
-const pokemonStarterApp = {};
+// const occupation = `chef`;
 
 
-// An initializer function. The first thing that will be called and will get all the other parts of our app up and running.
-pokemonStarterApp.init = () => {
-     pokemonStarterApp.setUpPokeEventListeners();
-     pokemonStarterApp.getPokemon();
-};
 
-
-//  A function to set up a change event listener on our select drop-down. When the change event fires, it will call the pokemonStarterApp.findPokemon function with the value of the selected option as an argument. 
-
-
-pokemonStarterApp.setUpPokeEventListeners = () => {
-     document.querySelector(`#pokemonChoice`).addEventListener(`change`, function () {
-          pokemonStarterApp.findPokemon = this.value;
-          pokemonStarterApp.getPokemon(pokemonStarterApp.findPokemon);
-     });
-};
-// A function that lets the user toggle between the default and shiny images.
-
-
-pokemonStarterApp.makeShinyEventListeners = (pokeObject) => {
-     let count = 0
-     document.querySelector(`#shiny`).addEventListener(`click`, function () {
-          if (count === 0) {
-               const pokeFrontImage = document.querySelector(`#poke-front-image`);
-               pokeFrontImage.src = pokeObject[`sprites`][`front_shiny`];
-               const pokeBackImage = document.querySelector(`#poke-back-image`);
-               pokeBackImage.src = pokeObject[`sprites`][`back_shiny`];
-               count = 1;
-          } else if (count === 1) {
-               const pokeFrontImage = document.querySelector(`#poke-front-image`);
-               pokeFrontImage.src = pokeObject[`sprites`][`front_default`];
-               const pokeBackImage = document.querySelector(`#poke-back-image`);
-               pokeBackImage.src = pokeObject[`sprites`][`back_default`];
-               count = 0;
-          }
+ const userOccupation = () => {
+     document.querySelector(`#occupation`).addEventListener(`change`, function (){
+          const findOccupation = this.value;
+          console.log(`change event listener called`);
+          getOccupation(findOccupation);
+          console.log(this.value);
+          console.log(findOccupation);
+          return findOccupation;
      })
-};
-// A function for our API call, this will go get the data from pokeapi.co
+}
+
+userOccupation();
 
 
-pokemonStarterApp.getPokemon = (id) => {
-     if (!id) return;
-     const url = `https://pokeapi.co/api/v2/pokemon/${id}?limit=150`;
-     fetch(url)
-          .then((response) => {
-               return response.json();
-          })
-          .then((jsonResult) => {
-               const myPokemon = jsonResult;
-               console.log(myPokemon);
-
-               pokemonStarterApp.displayPokers(myPokemon);
-               pokemonStarterApp.makeShinyEventListeners(myPokemon);
-               pokemonStarterApp.addPokeClasses(id);
-          }).catch((error) => {
-               alert(`It's unsafe! Wild Pokemon live in tall grass! You need your own Pokemon for your protection! Please reload the page.`)
-          });
-};
-// A function that uses the API result to create new elements and put them on the page based on the selected value.
-pokemonStarterApp.displayPokers = (pokeObject) => {
-     // This is pulling the custom badge image from our assets folder based on the type of pokemon selected by the user (not from the api).
-     const pokeBadge = document.querySelector(`#poke-badge`);
-     pokeBadge.innerHTML = `<img src="./assets/${pokeObject.types[0].type.name}.png" alt="${pokeObject.types[0].type.name} badge" >`;
-     const pokeName = document.querySelector(`#poke-name`);
-     pokeName.innerHTML = pokemonStarterApp.findPokemon;
-     const pokeNumber = document.querySelector(`#poke-number`);
-     pokeNumber.innerHTML = `${pokeObject.id}. `;
-     const pokeType = document.querySelector(`#poke-type`);
-     pokeType.innerHTML = pokeObject.types[0].type.name;
-     const pokeFrontImage = document.querySelector(`#poke-front-image`);
-     pokeFrontImage.src = pokeObject[`sprites`][`front_default`];
-     pokeFrontImage.alt = `${pokemonStarterApp.findPokemon} front`;
-     const pokeBackImage = document.querySelector(`#poke-back-image`);
-     pokeBackImage.src = pokeObject[`sprites`][`back_default`];
-     pokeBackImage.alt = `${pokemonStarterApp.findPokemon} back`;
-     const shiny = document.querySelector(`#shiny`);
-     shiny.innerHTML = `toggle shiny ${pokemonStarterApp.findPokemon}`;
-};
+const getAvatarURL = `https://avatar.iran.liara.run/public/job/${occupationArr[0].id}/female`;
 
 
-// A function that changes the styling of the chosen pokemon's name and shadow based on the selected value.
-pokemonStarterApp.addPokeClasses = (id) => {
+const getOccupation = async (id) => {
+     try {
+          const occupationResult = await axios.get(`https://avatar.iran.liara.run/public/job/${id}/female`);
 
-     const pokeName = document.querySelector(`#poke-name`);
+          console.log(`try block called`);
+          console.log(occupationResult.data);
 
-     pokeName.removeAttribute(`class`);
-     pokeName.classList.add(`${id}-styles`);
 
-     const pokePicture = document.querySelector(`#poke-picture`);
-     pokePicture.removeAttribute(`class`);
-     pokePicture.classList.add(`${id}-shadow`, `poke-picture`);
+     } catch(error) {
+          console.log(error);
+     }
+}
 
-};
 
-// Call the init function to start off our app!
-pokemonStarterApp.init();  */
