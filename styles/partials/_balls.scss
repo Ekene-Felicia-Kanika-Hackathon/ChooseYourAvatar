@@ -1,0 +1,58 @@
+// Found a really neat pokeball gradient
+// credit to: https://codepen.io/blakeworsley/pen/pbdqBK 
+// with some small updates by us
+
+.container {
+     display: flex;
+     justify-content: center;
+     align-items: center;
+}
+
+.ball,
+.ball2 {
+     height: 100px;
+     width: 100px;  
+     border-radius: 100px;
+     display: flex;
+     border: 5px none solid;
+     justify-content: center;
+     align-items: center;
+     background-image: linear-gradient(#7D1827 5%, darkmagenta 49%, $charcoal 5%, white 49%, #CADBD1);
+     margin: 10px;
+}
+
+.center, 
+.center2 {
+     background: white;
+     border: 3px none solid;
+}
+
+.center {
+     width: 30px;
+     height: 30px;
+     border-radius: 30px;
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     background: grey;
+}
+
+.center2 {
+     width: 25px;
+     height: 25px;
+     border-radius: 25px;
+     background-image: radial-gradient(white 60%, #757F7A)
+}
+
+.ball:hover,
+.ball2:hover {
+     transition-duration: .2s;
+}
+
+.ball:hover {
+     transform: rotate(8deg);
+}
+
+.ball2:hover {
+     transform: rotate(-8deg);
+}
