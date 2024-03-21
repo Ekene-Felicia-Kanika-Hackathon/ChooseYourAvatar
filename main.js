@@ -1,4 +1,4 @@
-//Pseudo Code for HACKATHON 
+//Pseudo Code for HACKATHON
 /* 
 
 Endpoint for Avavtar api 
@@ -7,10 +7,9 @@ https://avatar.iran.liara.run/public/
 
 */
 
-
 // Steps NEEDED For Project
-// Axios/Async Await 
-// Url Variable 
+// Axios/Async Await
+// Url Variable
 
 /*  **********
 ***************************
@@ -21,12 +20,7 @@ const getAvatarURL = `https://avatar.iran.liara.run/public/job/${occupation}/fem
 
 console.log(getAvatarURL);
 
-
-
-
-
-
-// Code from Choose Your Pokemon as referrence 
+// Code from Choose Your Pokemon as referrence
 
 /* // Create a namespace for our app:
 
